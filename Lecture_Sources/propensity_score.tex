@@ -1,0 +1,68 @@
+
+\section{Propensity score}
+
+\begin{frame}{Balancing score}
+\begin{itemize}
+    \item Достаточная статистика
+    $$T_i \perp (Y(1)_i, Y(0)_i | X_i) <=> T_i \perp (Y(1)_i, Y(0)_i)  | e(X_i)$$
+    \item Propensity score:
+    $e(X_i)=P(T_i = 1 | X_i)$
+    \item Смысл леммы: чтобы избавиться от смещения в оценке $\tau$, вместо всех ковариат достаточно проконтролировать на  меру склонности
+    \end{itemize}
+\end{frame}
+
+%\begin{frame}{Propensity score и balancing property}
+%\begin{itemize}
+ %   \item Propensity score:
+  %  $e(X_i)=P(T_i = 1 | X_i)$
+   % \item Доказательство на доске (from Imbens, Rubin, chapter 12.3)
+%    \item Смысл леммы: чтобы избавиться от смещения в оценке $\tau$, вместо всех ковариат достаточно проконтролировать на  меру склонности
+%\end{itemize}
+
+%\end{frame}
+
+\begin{frame}{Способы проконтролировать на propensity score}
+\begin{itemize}
+    \item blocking
+    \item matching
+    \item weighting
+\end{itemize}
+Это все просто про перевзвешивание
+\end{frame}
+
+%\begin{frame}{Не только ATE}
+
+%\begin{itemize}
+ %   \item Cредний эффект воздействия (\textbf{average treatment effect}):
+%$$
+%\text{ATE} = \mathbb{E}(\tau) =  \mathbb{E}(Y_1 - Y_0)
+%$$
+
+%зачем? почему отличается?
+%\item Cредний эффект воздействия на задействованных (\textbf{average treatment on the treated}):
+%$$
+%\text{ATT} = \mathbb{E}(\tau|T=1) = \mathbb{E}(Y_1 - Y_0|T=1)
+%$$
+%\item Cредний эффект воздействия на незадействованных (\textbf{average treatment on the non-treated}):
+%$$
+%\text{ATnT} = \mathbb{E}(\tau|T=0) =  \mathbb{E}(Y_1 - Y_0|T=0)
+%$$
+%\end{itemize} 
+    
+%\end{frame}
+
+
+
+%\begin{frame}{Бонус: propensity score, снижижающий дисперсию}
+ %   Устно
+%\end{frame}
+
+
+%\begin{frame}{Double-robustness}
+%\begin{itemize}
+ %   СДЕЛАТЬ ЗДЕСЬ ПОЛУЧШЕ ССЫЛКУ НА CHERNOZHUKOV
+  %  \item Давайте освежим. Какие 2 способа есть, чтобы избавиться от проблемы Confounders?
+   % \item Когда мы получим несмещенную оценку?
+    %\item А давайте сделаем и то и другое и получим Double robustness
+%\end{itemize}
+%\end{frame}

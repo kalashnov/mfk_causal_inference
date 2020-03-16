@@ -1,0 +1,1 @@
+It you are interested on the source of the image, you can find a proper citation in the tex files

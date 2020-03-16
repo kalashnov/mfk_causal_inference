@@ -1,0 +1,90 @@
+
+\section{Еще про контрольные переменные}
+
+\begin{frame}{Повторение}
+
+Мы узнали, что контроль нужен, чтобы
+\begin{itemize}[<+->]
+    \item Снизить дисперсию. Почему так происходит?
+    \item Потому что \textbf{ковариаты} <<съедают>> часть дисперсии
+\end{itemize}
+
+\pause
+Что еще:
+
+\begin{itemize}
+    \item Получить \textbf{гетерогенные эффекты}. \textbf{Предикторы}
+    \item Попробовать проанализировать неэкспериментальные данные \textbf{Смесители (confounders)}
+    \item Разобраться в эффекте \textbf{Медиаторы}
+    \item Испортить несмещенность \textbf{Bad Control}
+\end{itemize}
+
+Сегодня мы обо всем этом коротко поговорим, про большую часть эффектов поговорим позже
+    
+\end{frame}
+
+\begin{frame}{Получить гетерогенные эффекты}
+\begin{itemize}
+    \item Помните исследование про переселение в Чикаго?
+\end{itemize}
+\end{frame}
+
+\subsection{Плохой контроль}
+
+\begin{frame}{Плохой контроль\footnote{\cite[Глава 3.2.3]{angrist2008mostly}}}
+
+Примеры:
+\begin{itemize}
+    \item Контроль на место работы при исследовании влияния образования на доходы
+\end{itemize}
+
+схема
+
+Интуиция:
+\begin{itemize}
+    \item Люди, которые получили white collar job без образования сами по себе крутые -- sample bias
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Плохой контроль}
+
+Примеры:
+\begin{itemize}
+    \item Контролировать на явку в эксперименте с выборами
+    \item Контроль на место работы при исследовании влияния образования на доходы
+\end{itemize}
+    
+\pause
+    
+Формально:
+$$(Y_1, Y_0, X) \perp T\text{ --- не выполнено}$$
+$$(Y_1, Y_0, X_1, X_0) \perp T\text{ --- предположим это}$$
+
+\begin{gather*}
+E(Y|X=1 T=1) - E(Y|X=1 T=0) = \\
+E(Y_1|X_1=1) - E(Y_0|X_0=1 T=0) = \\
+E(Y_1|X_1=1) - E(Y_0|X_0=1) =
+\\E(Y_1 - Y_0|X_1=1) + (E(Y_0|X_1=1) - E(Y_0|X_0=1))= \\
+\text{LATE} + \text{Смещение выборки}
+\end{gather*}
+
+% про proxy тут???
+% good cop
+% это не то
+% Mediation? 
+
+% NEED A TABLE SLIDE
+% NEED A more statistical foundation here. WHAT IS!
+% need a better inference
+
+\end{frame}
+
+\subsection{Эффект посредничества}
+
+% \begin{frame}{Mediation effect}
+% Пример: Контролировать на явку в эксперименте с выборами
+
+% схема
+
+% \end{frame}

@@ -1,0 +1,50 @@
+\documentclass[handout,12pt]{beamer}
+\usepackage{../../Lecture_Sources/packages/common_imports}
+\usepackage{../../Lecture_Sources/packages/appearance}
+
+\title{Причинно-следственные связи в данных}
+\author[Георгий Калашнов, Ольга Сучкова]{Георгий Калашнов, Ольга Сучкова}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+  \begin{flushright}
+     Вот почему попугаи за номером один, два и три были так похожи друг на друга: они были просто одним и тем же попугаем. (А. и Б. Стругацкие)
+  \end{flushright}
+\end{frame}
+
+
+\begin{frame}{План на сегодня} 
+\tableofcontents
+\end{frame}
+
+\import{sections/}{course_intro.tex}
+\import{../../Lecture_Sources/}{experiments_intro.tex}
+
+
+\begin{frame}{Что надо запомнить}
+    \begin{itemize}
+        \item Наша основная задача: оценить эффект от бинарного воздействия. Например от приема таблетки.
+        \item Эффект воздействия может отличаться на разных подвыборках
+        \item Чтобы получить несмещенную оценки нужно назначать таблетку случайно.
+        \item Можно проверить, случайно таблетка назначалась, или нет
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Про зачёт по курсу}
+В качестве зачетной работы будет предложено разобрать эмприческое исследование и ответить на вопросы по нему. 
+Пример - статья Vincent Pons «Will a Five-Minute Discussion Change Your Mind? A Countrywide Experiment on Voter Choice in France» American Economic
+Review 2018, 108(6): 1322–1363.
+\begin{itemize}
+      \item Какой исследовательский вопрос интересует авторов? Что именно они хотят измерить?
+    \item Какие данные используют исследователи для ответаа на этот вопрос? Какой метод используют и почему?
+    \item Какой из полученных результатов отвечает на главный исследовательский вопрос? Проинтерпретируйте оценки.
+    \item В уравнениях регрессии в качестве контрольных переменных используются резльтаты прошлых выборов. Является ли это «плохим контролем»?
+\end{itemize} 
+\end{frame}
+
+\import{../../Lecture_Sources/}{citation_slides.tex}
+
+\end{document}

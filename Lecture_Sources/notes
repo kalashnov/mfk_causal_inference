@@ -1,0 +1,28 @@
+Best sequence:
+    experiments_intro
+    hypothesis_testing
+    experiment_design + publication_bias + bonferroni
+    prestratification
+    covariates
+    bad_control + mediation
+    Tompson estimator
+    propensity score! finally!
+
+
+TODO:
+own images + reproduce on seminar
+words: identification, exclusion restriction, sutva
+moment conditions + generalized
+Bootstrap, plug-in principle
+conditional
+unit tests for HA (or jupyter?)
+CEF!
+Assignment mechanism
+
+% слово identification -- это про момент! И это все как-то связано с local MaxL
+%Читай grf
+
+% Нужен максимально широкий обзор, как из панели сделать diff-in-diff
+
+% biases: sampling selection attrition publication mediation
+% uses of control variables: covariates, bad, ..,
