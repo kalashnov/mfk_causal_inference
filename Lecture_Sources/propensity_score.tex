@@ -1,68 +1,110 @@
 
 \section{Propensity score}
 
-\begin{frame}{Balancing score}
+% \begin{frame}{Balancing score}
+% очень не хватает иллюстрации проблемы
+% RUBIN IMBENS 2006
+% \end{frame}
+
+% \begin{frame}{Balancing score}
+% очень не хватает иллюстрации идеи
+% \end{frame}
+
+
+\begin{frame}{Balancing score\footcite[Можно почитать у][]{enikolopov2009ecm}\footcitetext[Раздел 3.3]{angrist2008mostly}}
 \begin{itemize}
     \item Достаточная статистика
-    $$T_i \perp (Y(1)_i, Y(0)_i | X_i) <=> T_i \perp (Y(1)_i, Y(0)_i)  | e(X_i)$$
+    $$T_i \perp (Y(1)_i, Y(0)_i)| X_i <=> T_i \perp (Y(1)_i, Y(0)_i)  | e(X_i)$$
     \item Propensity score:
     $e(X_i)=P(T_i = 1 | X_i)$
-    \item Смысл леммы: чтобы избавиться от смещения в оценке $\tau$, вместо всех ковариат достаточно проконтролировать на  меру склонности
+    \item Смысл леммы: чтобы избавиться от смещения в оценке $\tau$, вместо всех ковариат достаточно проконтролировать на  меру склонности. Доказательство у \textcite[Глава 15]{imbens2015causal} и \textcite{rubin1978bayesian}
     \end{itemize}
 \end{frame}
 
-%\begin{frame}{Propensity score и balancing property}
-%\begin{itemize}
- %   \item Propensity score:
-  %  $e(X_i)=P(T_i = 1 | X_i)$
-   % \item Доказательство на доске (from Imbens, Rubin, chapter 12.3)
-%    \item Смысл леммы: чтобы избавиться от смещения в оценке $\tau$, вместо всех ковариат достаточно проконтролировать на  меру склонности
-%\end{itemize}
-
-%\end{frame}
-
-\begin{frame}{Способы проконтролировать на propensity score}
+\begin{frame}{Способы применить propensity score}
 \begin{itemize}
-    \item blocking
-    \item matching
-    \item weighting
+    \item Blocking
+    \item Matching
+    \item Weighting
 \end{itemize}
-Это все просто про перевзвешивание
 \end{frame}
 
-%\begin{frame}{Не только ATE}
+\begin{frame}{Blocking}
+\begin{itemize}
+    \item Вычисляем propensity score.
+    \item Разбиваем наблюдения по блокам: 0.2-0.4, 0.4-0.6, 0.6-0.8
+    \item $\text{ATE} = \frac{N_H}{N} \left(\frac{1}{N_{TH}}\sum_{T=1, S=H} Y - \frac{1}{N_{CH}}\sum_{T=0,S=H} Y \right)+ 
+\frac{N_L}{N} \left(\frac{1}{N_{TL}}\sum_{T=1, S=L} Y - \frac{1}{N_{CL}}\sum_{T=0,S=L} Y \right)$
+\end{itemize}
 
-%\begin{itemize}
- %   \item Cредний эффект воздействия (\textbf{average treatment effect}):
-%$$
-%\text{ATE} = \mathbb{E}(\tau) =  \mathbb{E}(Y_1 - Y_0)
-%$$
+\begin{itemize}
+    \item Что плохого в пропуске данных?
+\end{itemize}
+\end{frame}
 
-%зачем? почему отличается?
-%\item Cредний эффект воздействия на задействованных (\textbf{average treatment on the treated}):
-%$$
-%\text{ATT} = \mathbb{E}(\tau|T=1) = \mathbb{E}(Y_1 - Y_0|T=1)
-%$$
-%\item Cредний эффект воздействия на незадействованных (\textbf{average treatment on the non-treated}):
-%$$
-%\text{ATnT} = \mathbb{E}(\tau|T=0) =  \mathbb{E}(Y_1 - Y_0|T=0)
-%$$
-%\end{itemize} 
+\begin{frame}{Matching}
+\begin{itemize}
+    \item Вычисляем propensity score.
+    \item Находим наблюдения с самыми близкими значениями propensity score. Остальные выбрасываем
+    \item Вычисляем обычный ATE
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Weighting}
+\begin{itemize}
+    \item Вычисляем propensity score.
+    \item Берем наблюдения из диапазона 10-90
+    \item $\text{ATE} = \frac{1}{N}\sum_{T=1} \frac{1}{e(X)} Y - \frac{1}{N}\sum_{T=0} \frac{1}{1 - e(X)} Y$
+\end{itemize}
+    \item Почему бы все не взять?
+\end{frame}
+
+% про оценку плотности тут!
+% weighting тоже
+
+\begin{frame}{Все это и есть взвешивание}
+\begin{itemize}
+    \item Matching -- веса 0/1
+    \item Blocking: $\frac{N_H}{N_{TH}}$ и $\frac{N_L}{N_{CH}}$
+    \item Weighting: $\frac{1}{e(X)}$ и $\frac{1}{1 - e(X)}$
+\end{itemize}
+
+
+Как получить ATT?
+\begin{itemize}
+    \item Blocking: $\frac{N_{TH}}{N_{T}}$ и $\frac{N_TL}{N_{T}}$
+    \item Weighting: 1, $\frac{e(X)}{1 - e(X)}$
+\end{itemize}
+\end{frame}
+
+
+
+% \begin{frame}{Balancing score}
+% эквивалентность и предел по блокам
+% \end{frame}
+
+% \begin{frame}{Balancing score}
+% Почему это все про нелинейность
+% \end{frame}
+
+% \begin{frame}{Double robustness}
     
-%\end{frame}
+% \end{frame}
+
+
+% \begin{frame}{Balancing score}
+% очень не хватает вопросов дисперсии
+% \end{frame}
+
+% \begin{frame}{Balancing score}
+% Больше про моделирование этой штуки. Как получить?
+% \end{frame}
 
 
 
-%\begin{frame}{Бонус: propensity score, снижижающий дисперсию}
- %   Устно
-%\end{frame}
 
+% В другую лекцию: про overlap
 
-%\begin{frame}{Double-robustness}
-%\begin{itemize}
- %   СДЕЛАТЬ ЗДЕСЬ ПОЛУЧШЕ ССЫЛКУ НА CHERNOZHUKOV
-  %  \item Давайте освежим. Какие 2 способа есть, чтобы избавиться от проблемы Confounders?
-   % \item Когда мы получим несмещенную оценку?
-    %\item А давайте сделаем и то и другое и получим Double robustness
-%\end{itemize}
-%\end{frame}
+% \begin{frame}{Balancing score}
+% Больше про моделирование этой штуки. Как получить?
+% \end{frame}
