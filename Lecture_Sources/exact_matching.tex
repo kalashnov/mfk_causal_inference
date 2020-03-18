@@ -20,11 +20,14 @@
    \end{itemize}
 \end{frame}
 
+\begin{frame}{Схема}
+\end{frame}
 
-\begin{frame}{Ф}
+
+\begin{frame}{Что если оценить вот так?}
 
 \begin{gather*}
-\frac{N_H}{N} \left(\frac{1}{N_{TH}}\sum_{T=1, S=H} Y - \frac{1}{N_{CH}}\sum_{T=0,S=H} Y \right)+ \\
+\text{ATE} = \frac{N_H}{N} \left(\frac{1}{N_{TH}}\sum_{T=1, S=H} Y - \frac{1}{N_{CH}}\sum_{T=0,S=H} Y \right)+ \\
 \frac{N_L}{N} \left(\frac{1}{N_{TL}}\sum_{T=1, S=L} Y - \frac{1}{N_{CL}}\sum_{T=0,S=L} Y \right)
 \end{gather*}
 
@@ -38,10 +41,10 @@
 \end{figure}
 \end{frame}
 
-\begin{frame}{Пример 2: Долгосрочный эффект от R&D  \parencite{schweiger2018long}}
-    \begin{figure}
-     \centering
-     \includegraphics[width=\textwidth]{Images/Naukograds.png}
+\begin{frame}{Пример 2: Долгосрочный эффект от R\&D  \parencite{schweiger2018long}}
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{Images/Naukograds.png}
 \end{figure}
 \end{frame}
 
@@ -78,6 +81,7 @@
 \begin{itemize}[<+->]
         \item Нет баланса по X!
         \item Что с $T_i \perp (Y(1)_i, Y(0)_i, X_i)$ ?
+        \item Мы можем посчитать эффект отдельно для каждой подгруппы
 \end{itemize}
 \end{frame} 
 
@@ -97,6 +101,7 @@
 \begin{itemize}
         \item В экспериментах разные P. По чему теперь нет баланса?
         \item Что с $T_i \perp (Y(1)_i, Y(0)_i, X_i)$ ?
+        \item Для каждой группы отдельно выполнено?
 \end{itemize}
 \end{table}
 \end{frame}
@@ -120,37 +125,31 @@
 
 \end{frame} 
 
-% еще раз формулу! и ??
-% ПРОСТОРНЕЕ ПРО UNCONFOUNDEDNESS AND OVERLAP.
-% ПРО ДИСПЕРСИЮ ТУТ
-
 \subsection{Предположение условной независимости}
 
-\begin{frame}{Unconfoundedness и Overlap}
+\begin{frame}{Unconfoundedness\footcite[Раздел 3.2.1]{angrist2008mostly} и Overlap}
 \begin{itemize}
    \item $T_i \perp (Y(1)_i, Y(0)_i, X_i)$ - идеальный эксперимент
    \item Вероятность попасть в тритмент-группу известна и одинакова для всех
-   \item $T_i \perp (Y(1)_i, Y(0)_i | X_i)$ - unconfoundedness (CIA, conditional independence assumption). Если взять людей с одинаковыми харатеристиками, то факт, что они в такой-то группе, не зависит от потенциальных исходов
+   \item $T_i \perp (Y(1)_i, Y(0)_i) | X_i$ - unconfoundedness (CIA, conditional independence assumption). Если взять людей с одинаковыми харатеристиками, то факт, что они в такой-то группе, не зависит от потенциальных исходов
    \item $e(X_i)=E(D_i | X_i) \in (0,1) $ - overlap. Вероятность попадания в тритмент-группу зависит от характеристик и ненулевая для всех значений Х
 \end{itemize}
 \end{frame}
 
+\begin{frame}{Итого:}
+\begin{gather*}
+\text{ATE} = \frac{N_H}{N} \left(\frac{1}{N_{TH}}\sum_{T=1, S=H} Y - \frac{1}{N_{CH}}\sum_{T=0,S=H} Y \right)+ \\
+\frac{N_L}{N} \left(\frac{1}{N_{TL}}\sum_{T=1, S=L} Y - \frac{1}{N_{CL}}\sum_{T=0,S=L} Y \right)
+\end{gather*}
 
-% \section{Что почитать}
+\begin{itemize}
+    \item Что не так, если не выполнено unconfoundedness?
+    \item Что не так, если не выполнен overlap?
+    \item Как получить ATT?
+    \item Что делать, если X принимает слишком много разных значений?
+\end{itemize}
+\end{frame}
 
-% \begin{frame}{Что почитать}
-% \begin{itemize}
-% \item Серьёзное \href{https://drive.google.com/open?id=0B52YvqIGw-SgaGxvZDRsZVB5Rzg}{В общей папке на гугл-диске}
-%     \begin{itemize}
-%       \item Angrist, Pischke $"$Mostly Harmless Econometrics$"$ - глава 3.3    
-%       \item Imbens, Riubin $"$Causal inference in social science$"$ -  глава 15 (гораздо больше)
-%       \item Р. Ениколопов "Эконометрический ликбез: эффекты воздействия" (unconfoundedness, propensity score) \href{http://quantile.ru/06/06-Literacy1.pdf}{http://quantile.ru/06/06-Literacy1.pdf}
-%     \end{itemize}
-% \end{itemize}
-
-
-% % IDEAS:
-% % MISSING AT RANDOM
-% % CITE
-% https://scholar.harvard.edu/files/imbens/files/efficient_estimation_of_average_treatment_effects_using_the_estimated_propensity_score.pdf
-
+% \begin{frame}{Balancing score}
+% Propscore, который ухуджает
+% \end{frame}
