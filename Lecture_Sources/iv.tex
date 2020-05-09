@@ -1,0 +1,221 @@
+
+
+\section{Инструментальные переменные в экспериментах}
+
+
+\begin{frame}{Пример с эффектом от таблетки}
+\begin{itemize}
+    \item Мы тестируем новое лекарство против covid и раздали в пневмонийном отделении половине настоящую таблетку другой половине плацебо
+    \item мы наблюдаем процент, что среди тех, кому дали таблику процент выздоровления повышается на 7 п.п.\footnote{Цифры приведены в демонстрационных целях}
+    \item 70 процентов пациентов таблетку приняли
+    \item Выздоровление тех людей, кто принял лекарство ниже, чем тех, кто не принял лекарство! Как так получилось?
+    \item Какова эффективность лекарства? \visible<2->{10 п.п.}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Оценка эффекта размера семьи}
+\begin{itemize}
+    \item Хотим оценить эффект второго ребенка на благосостояние (без панельных данных)?
+    \item Мы знаем, что доход людей у которых родились близнецы в среднем на 4 процентых пункта ниже.\footnote{Цифры приведены в демонстрационных целях}
+    \item Также мы знаем, что люди добровольно заводят второго ребенка с вероятностью 75%
+    \item Какой средний эффект второго ребенка на доход? \visible<2->{16 п.п.}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Оценка эффекта службы в армии на будущие доходы}
+\begin{itemize}
+    \item Каждого 15-ого мужчину случайным образом призывают на службу во Вьетнаме
+    \item Доход призванных людей у которых родились близнецы в среднем на 4 процентых пункта ниже.\footnote{Цифры приведены в демонстрационных целях}
+    \item Бывают люди, которых невозможно призвать по состоянию здоровья, бывают люди, которые служат в армии добровольно. Мы наблюдаем только исход лотереи и факт службы в армии.
+    \item Как оценить эффект службы в армии на будущие доходы?
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Терминология}
+\begin{itemize}
+    \item Инструмент Z (предложение таблетки, факт близнецов)
+    \item Переменная интереса T (принятие лекарства, количество детей)
+    \item Исход Y (температура, доход)
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Эффекты}
+
+Как устроен мир: Z -> T -> Y
+
+\begin{itemize}[<+->]
+    \item Reduced form (Intention to treat): Z -> Y
+    \item First stage: Z -> T
+    \item Second stage: T -> Y
+\end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}{Структурный подход против reduced form}
+
+Плюсы структурного подхода:
+\begin{itemize}
+    \item Можно получить информацию, которая другим способом недоступна (эффективность лекарства)
+    \item Можем оценить параметры теоретических моделей
+    \item Можно фальсифицировать теорию (e.g. закон спроса)
+    \item Можно ответить на вопрос <<почему>> -- изучить передаточный механизм
+\end{itemize}
+
+Минусы структурного подхода:
+\begin{itemize}
+    \item Получаем результаты того, на что можем непосредственно повлиять
+    \item Более слабые предпосылки не требующие корректности теории
+    \item Слабые -- значит надежные. Работают даже если теория не верна
+    \item Более устойчивые результаты: мало свободы у исследователя повлиять на результат функциональной формой
+\end{itemize}
+    
+\end{frame}
+
+
+\begin{frame}{Обозначения} 
+\begin{itemize}
+    \item $Y_{00}, Y_{10}, Y_{01}, Y_{11}$ -- Зависимая переменная (\textbf{potential outcomes})
+    \item $T_1$, $T_0$ -- Переменная интереса (теперь тоже с потенциальными исходами)
+    \item $Z$ -- Инструментальная переменная (\textbf{instrumental variable})
+    \item $X$ -- Независимые переменные (\textbf{Covariates})
+    \item Мы наблюдаем только $(Y, P, X)$, где $T = ZT_1 + (1-T)T_0$ -- \textbf{observed treatment} $Y = \texttt{длинная формула}$ -- \textbf{observed outcomes}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Предпосылки}
+
+\begin{itemize}
+    \item $(Y_{ij}, T_i, X) \perp Z$ -- рандомизация (exclusion restriction)
+    \item SUTVA
+    \item<2-> $P(T_1 \geq T_0) = 1$ -- монотонность %hide at all
+    \begin{itemize}
+        \item Мы хотим, чтобы бывало такое, чтобы никогда не было такого, что  $T_1 < T_0$, но бывало такое, что $T_1 > T_0$
+        \item Бывает одностороннее неповиновение тритементу (one-sided noncompliance)
+        \item Бывает двустороннее неповиновение тритементу (two-sided noncompliance)
+    \end{itemize}
+
+Когда выполнены все эти предпосылки, мы говорим, что эффект \textbf{идентифицирован}.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Подробнее про предпосылки}
+\begin{itemize}
+    \item $P(T_1 \geq T_0) = 1$ -- монотонность. На самом деле возможных случает в только 4
+    \begin{itemize}
+        \item Always takers: $T_1 = 1$, $T_0 = 1$
+        \item Compliers: $T_1 = 1$, $T_0 = 0$
+        \item Never takers: $T_1 = 0$, $T_0 = 0$
+        \item Defiers: $T_1 = 0$, $T_0 = 1$
+    \end{itemize}
+\end{itemize}
+\pause
+\begin{itemize}
+        \item Two-sided noncompliance: no Defiers
+        \item Two-sided noncompliance: no Defiers and no Always takers
+    \end{itemize}
+\end{frame}
+
+% \begin{frame}{Подробнее про предпосылки}
+% \begin{itemize}
+%     \item $P(T_1 \geq T_0) = 1$ -- монотонность. На самом деле возможных случает в только 4
+%     \begin{itemize}
+%         \item Always takers: $T_1 = 1$, $T_0 = 1$
+%         \item Compliers: $T_1 = 1$, $T_0 = 0$
+%         \item Never takers: $T_1 = 0$, $T_0 = 0$
+%         \item Defiers: $T_1 = 0$, $T_0 = 1$
+%     \end{itemize}
+% \end{itemize}
+% \pause
+% \begin{itemize}
+%         \item One-sided noncompliance: Нам 
+%         \item Compliers: $T_1 = 1$, $T_0 = 0$
+%         \item Never takers: $T_1 = 0$, $T_0 = 0$
+%         \item Defiers: $T_1 = 0$, $T_0 = 1$
+%     \end{itemize}
+% \end{frame}
+
+% формулы!
+
+\begin{frame}{Пример одностороннего неповиновения: encouragement design}
+
+\begin{enumerate}
+    \item Пример с таблеткой
+    \item Пример с детьми
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Пример двустороннего неповиновения}
+
+\begin{enumerate}
+    \item Пример с армией
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Формула}
+
+\begin{gather}
+    \text{ITT}_T = \bar T_{Z=1} - \bar T_{Z=0} = P(\text{compliers}) \\
+    \text{ITT}_Y = \bar Y_{Z=1} - \bar Y_{Z=0} \\ % = разлоджить
+    \text{TE} = \frac{\text{ITT}_Y}{\text{ITT}_T} = E(\tau|\test{Compliers}) = \text{LATE}
+\end{gather}
+\end{frame}
+
+\begin{frame}{Откуда брать инструментальные переменные?}
+\begin{itemize}
+    \item Из опыта чужих исследований
+    \item Миру известны десятки хороших инструментов. Каждый из них вызывает много дебатов
+    \item Если вы придумали свой инструмент это тянет на хорошее оригинальное исследование.
+\end{itemize}
+
+\end{frame}
+
+
+% \begin{frame}{ITT и Как это связано с обычной регрессией}
+
+    
+% \end{frame}
+
+% примеры как теория помогает с этими предпосылками работать...
+
+
+
+% \section{Гетерогенные эффекты}
+
+
+
+% \begin{frame}{Двушаговая оценка}
+% \begin{itemize}
+%     \item Первый шаг
+%     \begin{itemize}
+%      \item На подвыборке $Z=1$ оценить модель $P_1(X)$
+%      \item На подвыборке $Z=0$ оценить модель $P_0(X)$
+%     \end{itemize}
+%     \item Второй шаг
+%     \begin{itemize}
+%      \item Взять прогнозы $\hat P(Z, X)$ и использовать их в регрессии $\hat Y(\hat P, X)$
+%     \end{itemize}
+% \end{itemize}
+% \end{frame}
+
+% \begin{frame}{Предположения}
+% \begin{itemize}
+%     \item $(P_1, P_0, X) \perp Z$ -- рандомизация
+%     \item $P(P_1 > P_0) = 1$ -- монотонность
+%     \item Еще пара совершенно технических предпосылок
+% \end{itemize}
+
+
+% ЗАМЕТКИ:
+%     Гетерогенные инстурменты на основе этой статьи https://sci-hub.se/10.1016/s0304-4076(02)00201-4
+    
+%     ОЧЕНЬ ХОРОШАЯ СТАТЬЯ, объясняет почему LATE оценка получается с инстурментами и как из нее ATE сделать https://sci-hub.se/https://www.cambridge.org/core/journals/political-analysis/article/beyond-late-estimation-of-the-average-treatment-effect-with-an-instrumental-variable/604E0803793175CF88329DB34DAA80B3
+    
+%     Вот тут статья обсуждает предопсылку монотонности в более общем случае, а не в бинарном. Но бинарный случай надо рассказать очень хорошо! https://faculty.smu.edu/millimet/classes/eco7377/papers/manski%20pepper%2000.pdf
+
+% \end{frame}

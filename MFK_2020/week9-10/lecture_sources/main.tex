@@ -1,0 +1,58 @@
+% HOW TO PARAMETRIZE RELATIVE IMPORTS???
+
+\documentclass[12pt]{beamer}
+\setbeamercovered{dynamic}
+\usepackage{../../Lecture_Sources/packages/common_imports}
+\usepackage{../../Lecture_Sources/packages/appearance}
+
+
+\title{Инструментальные переменные в модели Рубина}
+\author[Георгий Калашнов, Ольга Сучкова]{Георгий Калашнов, Ольга Сучкова}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+  
+\end{frame}
+
+
+
+
+% нужно обобщить такие слайды в syllabus и просто bind и общий progress plan иметь
+\begin{frame}{Обзор пройденного до сегодняшнего момента}
+\begin{enumerate}
+    \item Экспериментальные методы
+    \begin{enumerate}
+        \item Честный эксперимент
+        \item Мера склонности (propensity score)
+    \end{enumerate}
+    \item Квазиэкспериментальные методы:
+    \begin{enumerate}
+        \item Панельные данные: разность разностей
+        \item Разрывная регрессия
+    \end{enumerate}
+        \item Инструментальные переменные \textbf{(вы здесь)}
+    \begin{enumerate}
+        \item В экспериментах
+        \item В панельных данных
+        \item В разнывной регрессии
+    \end{enumerate}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{План на сегодня} 
+\tableofcontents
+\end{frame}
+
+
+\import{../../Lecture_Sources/}{iv.tex}
+% \import{../../Lecture_Sources/}{identification.tex}
+\import{../../Lecture_Sources/}{bartik.tex}
+\import{../../Lecture_Sources/}{fuzzy_regression_discontinuity.tex}
+\import{../../Lecture_Sources/}{citation_slides.tex}
+
+
+
+\end{document}
