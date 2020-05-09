@@ -1,0 +1,60 @@
+
+\section{Расширения разнывной регрессии}
+
+\begin{frame}{Расширения разнывной регрессии}
+\begin{enumerate}
+    \item Кейс 1: что если у нас не одна отсечка, а несколько? Примеры:
+    \begin{itemize}
+        \item Округление непрывной $R$ в ценообразовании Uber
+    \end{itemize}
+    \item Что если у нас несколько running varables $R \in \mathbb{R}^2$
+    \begin{itemize}
+        \item Граница между территориями
+        \item Избираются 3 кандидата, а не 2
+    \end{itemize}
+\end{enumerate}
+    
+\end{frame}
+
+
+\begin{frame}{Возникает дисбаланс в ковариатах: интуиция}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{Images/pool bad.png}
+    \end{figure}
+\end{frame}
+
+
+% \begin{frame}{Возникает дисбаланс}
+%     \begin{figure}
+%         \centering
+%         \includegraphics[width=\textwidth]{Images/pool bad.png}
+%     \end{figure}
+% \end{frame}
+% теория, почему
+
+\begin{frame}{Возникает дисбаланс в ковариатах: таблица}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{Images/geo_balance.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Пример: эффект территориальной газеты на явку}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{Images/geo.png}
+    \end{figure}
+\end{frame}
+
+
+\begin{frame}{Пример: эффект выбора 1 кандидата из 3}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{Images/pooled_vs_hte.png}
+    \end{figure}
+\end{frame}
+
+
+
+% https://scholar.google.com/scholar?hl=ru&as_sdt=0%2C5&q=regression+discontinuity+school+districts&btnG=

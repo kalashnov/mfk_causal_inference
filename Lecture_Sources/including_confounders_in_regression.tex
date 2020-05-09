@@ -1,0 +1,35 @@
+
+\section{Включение confounders в регрессию}
+
+\begin{frame}{В прошлые разы мы обсудили}
+Чтобы получить несмещенную оценку можно 
+\begin{itemize}
+    \item Matching -- веса 0/1
+    \item Blocking: $\frac{N_H}{N_{TH}}$ и $\frac{N_L}{N_{CH}}$
+    \item Weighting: $\frac{1}{e(X)}$ и $\frac{1}{1 - e(X)}$
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Еще можно можно сделать demeaning}
+
+$$m_1(X) = E(Y|X, T=1)$$
+$$m_0(X) = E(Y|X, T=0)$$
+
+$$ATE = \frac{1}{n_1}\sum_{T=1}\left(Y - m_1(X)\right) - \frac{1}{n_0}\sum_{T=0}\left(Y - m_0(X)\right)$$
+
+Это все равно, что оценить регрессию вида
+
+$$Y = X + T + X*T$$
+
+
+\end{frame}
+
+\begin{frame}{Double Robustness}
+
+А еще можно сделать и то и другое
+(на доске)
+
+\end{frame}
+
+% схемки сюда
