@@ -13,16 +13,17 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Оценка эффекта размера семьи}
-\begin{itemize}
-    \item Хотим оценить эффект второго ребенка на благосостояние (без панельных данных)?
-    \item Мы знаем, что доход людей у которых родились близнецы в среднем на 4 процентых пункта ниже.\footnote{Цифры приведены в демонстрационных целях}
-    \item Также мы знаем, что люди добровольно заводят второго ребенка с вероятностью 75%
-    \item Какой средний эффект второго ребенка на доход? \visible<2->{16 п.п.}
-\end{itemize}
-\end{frame}
+% \begin{frame}{Оценка эффекта размера семьи}
+% \begin{itemize}
+%     \item Хотим оценить эффект второго ребенка на благосостояние (без панельных данных)?
+%     \item Мы знаем, что доход людей у которых родились близнецы в среднем на 4 процентых пункта ниже.\footnote{Цифры приведены в демонстрационных целях}
+%     \item Также мы знаем, что люди добровольно заводят второго ребенка с вероятностью 75%
+%     \item Какой средний эффект второго ребенка на доход? \visible<2->{16 п.п.}
+% \end{itemize}
+% SEPARATE STORY ON NONVALIDITY OF TWIN
+% \end{frame}
 
-\begin{frame}{Оценка эффекта службы в армии на будущие доходы}
+\begin{frame}{Оценка эффекта службы в армии на будущие доходы \parencite{angrist1990lifetime}}
 \begin{itemize}
     \item Каждого 15-ого мужчину случайным образом призывают на службу во Вьетнаме
     \item Доход призванных людей у которых родились близнецы в среднем на 4 процентых пункта ниже.\footnote{Цифры приведены в демонстрационных целях}
@@ -75,7 +76,7 @@
 \end{frame}
 
 
-\begin{frame}{Обозначения} 
+\begin{frame}{Обозначения\footcitetext[Глава 4.4]{angrist2008mostly}} 
 \begin{itemize}
     \item $Y_{00}, Y_{10}, Y_{01}, Y_{11}$ -- Зависимая переменная (\textbf{potential outcomes})
     \item $T_1$, $T_0$ -- Переменная интереса (теперь тоже с потенциальными исходами)
@@ -85,10 +86,11 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Предпосылки}
+\begin{frame}{Предпосылки\footcitetext[Часть VI]{imbens2015causal}}
 
 \begin{itemize}
-    \item $(Y_{ij}, T_i, X) \perp Z$ -- рандомизация (exclusion restriction)
+    \item $(Y_{ij}, T_i, X) \perp Z$ -- рандомизация
+    \item $(Y_{i1} = Y_{i0}$ -- exclusion restriction
     \item SUTVA
     \item<2-> $P(T_1 \geq T_0) = 1$ -- монотонность %hide at all
     \begin{itemize}
@@ -175,6 +177,11 @@
 
 \end{frame}
 
+% CITE GERBER AND GREEEN
+% CITE 
+
+
+% IV EXTENSIONS FROM ANGRIST
 
 % \begin{frame}{ITT и Как это связано с обычной регрессией}
 
@@ -219,3 +226,35 @@
 %     Вот тут статья обсуждает предопсылку монотонности в более общем случае, а не в бинарном. Но бинарный случай надо рассказать очень хорошо! https://faculty.smu.edu/millimet/classes/eco7377/papers/manski%20pepper%2000.pdf
 
 % \end{frame}
+
+
+% \section{Инструментальные переменные -- продолжение}
+
+% \begin{frame}{Late or ATE}
+% \begin{itemize}
+%     \item 1
+%     \item 2
+%     \item 3
+% \end{itemize}
+% \end{frame}
+
+% \begin{frame}{Continuous Instrument}
+% \begin{itemize}
+%     \item 1
+%     \item 2
+%     \item 3
+% \end{itemize}
+% \end{frame}
+
+
+% https://en.wikipedia.org/wiki/Simultaneous_equations_model#Indirect_least_squares
+
+% control functions
+
+% https://www.sciencedirect.com/science/article/abs/pii/S0304407604001745 -- history
+% also need Pearl's view
+% one lecture -- overview of structural models
+
+
+%more more more examples here of good instrunents
+% no leave examples to field courses. My mission is to establish a way to discuss them
